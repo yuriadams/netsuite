@@ -78,9 +78,9 @@ module NetSuite
 
           if response.success?
             @internal_id = response.body[:@internal_id]
-            true
+            { success: true, message: @internal_id }
           else
-            false
+            { success: false, message: @errors }
           end
         end
       end
